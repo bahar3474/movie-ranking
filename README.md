@@ -13,7 +13,7 @@ pip install requirements.txt
 cd ranking
 python manage.py migrate
 ```
-- Run main.py.
+- Run:
 ```bash
 python manage.py runserver
 ```
