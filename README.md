@@ -1,12 +1,12 @@
 # movie-ranking
 
-a Django based application for ranking movies and show top 5 according to the members' rating.
+Django application for ranking movies and show top 5 according to the members' rating.
 
 #### Getting Started
 - Create a virtualenv with python version 3 and activate it.
 - Install requirements: 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 - Database:
 ```bash
