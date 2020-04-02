@@ -8,6 +8,10 @@ Django application for ranking movies and show top 5 according to the members' r
 ```bash
 pip install -r requirements.txt
 ```
+- Create an admin user:
+```bash
+python manage.py createsuperuser
+```
 - Database:
 ```bash
 cd ranking
