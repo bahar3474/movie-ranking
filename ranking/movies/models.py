@@ -6,6 +6,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=255)
     suggester = models.CharField(max_length=255)
     tmdb_id = models.IntegerField()
+    seen = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -14,4 +15,4 @@ class Movie(models.Model):
 class MovieRanking(models.Model):
     member_id = models.ForeignKey(Member, on_delete=models.CASCADE)
     movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    rank = models.IntegerField()
+    score = models.IntegerField()
