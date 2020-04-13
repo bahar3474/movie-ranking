@@ -12,7 +12,7 @@ class Movie(models.Model):
         return self.title
 
 
-class MovieRanking(models.Model):
+class MovieScore(models.Model):
     member_id = models.ForeignKey(Member, on_delete=models.CASCADE)
     movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
     score = models.IntegerField()

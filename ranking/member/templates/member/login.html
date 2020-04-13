@@ -100,6 +100,11 @@
     نام کاربری یا رمز عبور اشتباه است.
 </div>
 {% endif %}
+{% if login_required %}
+<div class="err">
+    برای دسترسی به صفحه مورد نظر باید ابتدا وارد شوید.
+</div>
+{% endif %}
 <form action="{% url 'check_login' %}" method="post">
     {% csrf_token %}
     <div class="container">

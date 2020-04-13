@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponseRedirect
-from django.urls import reverse
 
 from .models import Member
+from .decorators import member_only
 
 
 def login(request):
@@ -17,6 +17,7 @@ def check_login(request):
             password=make_password(request.POST['pass'], Member.salt)
         )
         request.session['member_id'] = member_login.id
+        return HttpResponseRedirect('/')
 
     except Member.DoesNotExist:
         return render(request, 'member/login.html', {'not_found': True})
