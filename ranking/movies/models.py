@@ -13,6 +13,6 @@ class Movie(models.Model):
 
 
 class MovieScore(models.Model):
-    member_id = models.ForeignKey(Member, on_delete=models.CASCADE)
-    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     score = models.IntegerField()
