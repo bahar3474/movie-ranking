@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+</head>
+<body>
+{% for mov in movies %}
+<div>
+    <div style="width: 50%">{{ mov.title }}</div>
+    <div style="width: 50%">{{ mov.score }}</div>
+</div>
+{% endfor %}
+</body>
+</html>

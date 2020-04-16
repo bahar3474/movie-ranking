@@ -1,3 +1,5 @@
+{% load template_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,18 @@
     <title>Title</title>
 </head>
 <body>
-hi
+<form action="{% url 'confirm_score' %}" method="post">
+    {% csrf_token %}
+    <div>
+        {% for mov in movies %}
+        <label for="mov-{{ forloop.counter }}">{{ mov.title }}</label>
+        <input type="number" id="mov-{{ forloop.counter }}" name="score[{{mov.id}}]"
+               min="1" max="10" value="{{scores|get_item:mov.id}}">
+        {% endfor %}
+
+        <button type="submit">ثبت</button>
+
+    </div>
+</form>
 </body>
 </html>
