@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.db.models import Sum
 
 from .models import Movie, MovieScore
 from member.decorators import member_only
 
 # Create your views here.
 def top5(request):
-    return HttpResponse('hello! :)')
+    movies = Movie.objects.annotate(score=Sum('moviescore__score')).order_by('-score')
+    return render(request, 'movies/top5.html', {'movies': movies[:5]})
 
 @member_only
 def score(request):
@@ -18,3 +20,7 @@ def score(request):
         scores[scr.movie_id] = scr.score
 
     return render(request, 'movies/score.html', {'scores': scores, 'movies': movies})
+
+@member_only
+def score_confirm(request):
+    pass

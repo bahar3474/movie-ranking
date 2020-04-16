@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for mov in movies %}
+<div>
+    <div style="width: 50%">{{ mov.title }}</div>
+    <div style="width: 50%">{{ mov.score }}</div>
+</div>
+{% endfor %}
+{% endblock %}
